@@ -1,0 +1,66 @@
+[
+  {
+    "path": "posts/3.third_blog/",
+    "title": "Turning YouTube Data Into Insights: A Social Listening Project",
+    "description": "In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques.",
+    "author": [
+      {
+        "name": "Virasak Sokun",
+        "url": "https://www.linkedin.com/in/virasak-sokun/"
+      }
+    ],
+    "date": "2020-11-15",
+    "categories": [],
+    "preview": "posts/3.third_blog/post_3_files/figure-html5/unnamed-chunk-5-1.png",
+    "last_modified": "2020-11-16T00:32:05+11:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2.second_blog/",
+    "title": "Identifying Market Position and Key Drivers of an Electronic Retailer",
+    "description": "In this case study, we will go through data analysis tasks and develop recommendatios for one of the leading electronic retailers in Australia, JB Hi-Fi.",
+    "author": [
+      {
+        "name": "Virasak Sokun",
+        "url": "https://www.linkedin.com/in/virasak-sokun/"
+      }
+    ],
+    "date": "2020-11-07",
+    "categories": [],
+    "preview": "posts/2.second_blog/image/table.png",
+    "last_modified": "2020-11-12T17:05:06+11:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/1.first_blog/",
+    "title": "The Emergency Department Problems",
+    "description": "This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia.",
+    "author": [
+      {
+        "name": "Virasak Sokun",
+        "url": "https://www.linkedin.com/in/virasak-sokun/"
+      }
+    ],
+    "date": "2020-11-01",
+    "categories": [],
+    "preview": "posts/1.first_blog/first_blog_files/figure-html5/unnamed-chunk-12-1.png",
+    "last_modified": "2020-11-08T01:00:17+11:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to My Blog",
+    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Virasak Sokun",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2020-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-11-01T11:06:46+11:00",
+    "input_file": {}
+  }
+]

@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Virasak's Blogs: Turning YouTube Data Into Insights: A Social Listening Project</title>
+
+<meta property="description" itemprop="description" content="In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques."/>
+
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-11-15"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-11-15"/>
+<meta name="article:author" content="Virasak Sokun"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Virasak&#39;s Blogs: Turning YouTube Data Into Insights: A Social Listening Project"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Virasak&#39;s Blogs"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Virasak&#39;s Blogs: Turning YouTube Data Into Insights: A Social Listening Project"/>
+<meta property="twitter:description" content="In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques."/>
+
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Turning YouTube Data Into Insights: A Social Listening Project"]},{"type":"character","attributes":{},"value":["In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Virasak Sokun"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/virasak-sokun/"]}]}]},{"type":"character","attributes":{},"value":["11-15-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["data/Cleaned_Data.csv","data/Competitors Data.csv","data/patterns.txt","post_3_files/bowser-1.9.3/bowser.min.js","post_3_files/distill-2.2.21/template.v2.js","post_3_files/figure-html5/unnamed-chunk-11-1.png","post_3_files/figure-html5/unnamed-chunk-11-2.png","post_3_files/figure-html5/unnamed-chunk-12-1.png","post_3_files/figure-html5/unnamed-chunk-15-1.png","post_3_files/figure-html5/unnamed-chunk-15-2.png","post_3_files/figure-html5/unnamed-chunk-5-1.png","post_3_files/figure-html5/unnamed-chunk-7-1.png","post_3_files/figure-html5/unnamed-chunk-8-1.png","post_3_files/htmlwidgets-1.5.1/htmlwidgets.js","post_3_files/jquery-1.11.3/jquery.min.js","post_3_files/vis-4.20.1/img/network/acceptDeleteIcon.png","post_3_files/vis-4.20.1/img/network/addNodeIcon.png","post_3_files/vis-4.20.1/img/network/backIcon.png","post_3_files/vis-4.20.1/img/network/connectIcon.png","post_3_files/vis-4.20.1/img/network/cross.png","post_3_files/vis-4.20.1/img/network/cross2.png","post_3_files/vis-4.20.1/img/network/deleteIcon.png","post_3_files/vis-4.20.1/img/network/downArrow.png","post_3_files/vis-4.20.1/img/network/editIcon.png","post_3_files/vis-4.20.1/img/network/leftArrow.png","post_3_files/vis-4.20.1/img/network/minus.png","post_3_files/vis-4.20.1/img/network/plus.png","post_3_files/vis-4.20.1/img/network/rightArrow.png","post_3_files/vis-4.20.1/img/network/upArrow.png","post_3_files/vis-4.20.1/img/network/zoomExtends.png","post_3_files/vis-4.20.1/vis.css","post_3_files/vis-4.20.1/vis.min.js","post_3_files/visNetwork-binding-2.0.9/visNetwork.js","post_3_files/webcomponents-2.0.0/webcomponents.js","post_3_files/wordcloud2-0.0.1/hover.js","post_3_files/wordcloud2-0.0.1/wordcloud.css","post_3_files/wordcloud2-0.0.1/wordcloud2-all.js","post_3_files/wordcloud2-binding-0.2.1/wordcloud2.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <link href="../../site_libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+  <script src="../../site_libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+  <script src="../../site_libs/wordcloud2-0.0.1/hover.js"></script>
+  <script src="../../site_libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Turning YouTube Data Into Insights: A Social Listening Project","description":"In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques.","authors":[{"author":"Virasak Sokun","authorURL":"https://www.linkedin.com/in/virasak-sokun/","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-11-15T00:00:00.000+11:00","citationText":"Sokun, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="../../index.html">
+<img src="../../images/logo-white.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">Virasak's Blogs</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="https://virasaksokun.github.io/myresume/">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Turning YouTube Data Into Insights: A Social Listening Project</h1>
+<p>In this article, I will show you customers perspectives on Print On Demand industry on Youtube using social listening techniques.</p>
+</div>
+
+<div class="d-byline">
+  Virasak Sokun <a href="https://www.linkedin.com/in/virasak-sokun/" class="uri">https://www.linkedin.com/in/virasak-sokun/</a> 
+  
+<br/>11-15-2020
+</div>
+
+<div class="d-article">
+<p><br></p>
+<p>The article will cover deliverables as shown below.</p>
+<div class="line-block">  <strong>1.</strong> List of data analytics findings including raw and cleaned data, results from the analytics, and some potential customers contact detail.</div>
+<div class="line-block">  <strong>2.</strong> Social listening analytics including text processing, sentiment analytics, and association rules analytics.</div>
+<p><br> This article includes the following deliverables aiming to solve business problem of gathering insights of the competitors using their customers reviews on Youtube platform and potential influencers and customers.</p>
+<div class="line-block">  <strong>a)</strong> Visualisation of most frequent words mentioned by the commenters about the competitors’ products and services.</div>
+<div class="line-block">  <strong>b)</strong> Sentiment Analytics.</div>
+<div class="line-block">  <strong>c)</strong> List of URL and email of potential influencers and customers.</div>
+<p><br></p>
+<p>You can download the data used in this article here:</p>
+<ul>
+<li><p><a href = "data/Cleaned_Data.csv">Cleaned_Data.csv</a></p></li>
+<li><p><a href = "data/patterns.txt">patterns.txt</a></p></li>
+</ul>
+<p>I retrieved data from Youtube using Youtube Data API. You can find out more about the use of this Google service <a href="https://developers.google.com/youtube/v3">here</a></p>
+<h3 id="data-cleaning-and-preparation">1. Data Cleaning and Preparation</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(formattable)
+library(ggplot2)
+library(tidytext)
+library(wordcloud2)
+library(gridExtra)
+library(arulesSequences)
+library(arulesViz)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#Read Data
+text = read.csv(&quot;data/Cleaned_Data.csv&quot;)
+
+# write function to expand contractions in an English-language source
+fix.contractions &lt;- function(doc) {
+  # &quot;won&#39;t&quot; is a special case as it does not expand to &quot;wo not&quot;
+  doc &lt;- gsub(&quot;won&#39;t&quot;, &quot;will not&quot;, doc)
+  doc &lt;- gsub(&quot;can&#39;t&quot;, &quot;can not&quot;, doc)
+  doc &lt;- gsub(&quot;n&#39;t&quot;, &quot; not&quot;, doc)
+  doc &lt;- gsub(&quot;&#39;ll&quot;, &quot; will&quot;, doc)
+  doc &lt;- gsub(&quot;&#39;re&quot;, &quot; are&quot;, doc)
+  doc &lt;- gsub(&quot;&#39;ve&quot;, &quot; have&quot;, doc)
+  doc &lt;- gsub(&quot;&#39;m&quot;, &quot; am&quot;, doc)
+  doc &lt;- gsub(&quot;&#39;d&quot;, &quot; would&quot;, doc)
+  # &#39;s could be &#39;is&#39; or could be possessive: it has no expansion
+  doc &lt;- gsub(&quot;&#39;s&quot;, &quot;&quot;, doc)
+  return(doc)
+}
+
+# function to remove special characters
+removeSpecialChars &lt;- function(x) gsub(&quot;[^a-zA-Z0-9 ]&quot;, &quot; &quot;, x)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+text$text &lt;- sapply(text$text, fix.contractions)
+
+# remove special characters
+text$text &lt;- sapply(text$text, removeSpecialChars)
+
+# convert everything to lower case
+text$text &lt;- sapply(text$text, tolower)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+words_filtered &lt;- text %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  anti_join(stop_words) %&gt;%
+  distinct() %&gt;%
+  filter(nchar(word) &gt; 3)</code></pre>
+</div>
+<h3 id="overview">2. Overview</h3>
+<p><strong>Most Frequently Used Words in The Comments</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+words_filtered %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  top_n(10) %&gt;%
+  ungroup() %&gt;%
+  mutate(word = reorder(word, n)) %&gt;%
+  ggplot() +
+    geom_col(aes(word, n), fill = &quot;#CC0000&quot;) +
+    theme(legend.position = &quot;none&quot;, 
+          plot.title = element_text(hjust = 0.5),
+          panel.grid.major = element_blank()) +
+    xlab(&quot;&quot;) + 
+    ylab(&quot;Comment Count&quot;) +
+    ggtitle(&quot;Most Frequently Used Words in The Comments&quot;) +
+    coord_flip()</code></pre>
+<p><img src="post_3_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<p><strong>Wordcloud</strong></p>
+<p>The “wordcloud” shows all words appeared in the comments by frequency. It gives an overview of what are the most popular words the commenters talk about which reveal some interesting terminologies benefits for insights exploration.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+text_count &lt;- words_filtered %&gt;%
+  count(word, sort = TRUE) 
+
+wordcloud2(text_count[1:300, ], size = .5)</code></pre>
+<div id="htmlwidget-319f397adc7bacca3d04" style="width:624px;height:384px;" class="wordcloud2 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-319f397adc7bacca3d04">{"x":{"word":["video","teespring","store","shirt","design","greg","love","product","videos","products","sell","money","question","shirts","start","shopify","people","business","designs","free","time","website","https","merch","printful","quot","helpful","review","content","quality","instagram","shipping","create","site","awesome","dropshipping","print","account","started","sales","sharing","online","info","nice","typorama","amazing","youtube","check","selling","information","amazon","niche","stores","channel","recommend","drop","influencers","page","stuff","link","profit","didn","facebook","kwfinder","shop","watch","hope","advice","company","days","ship","month","starting","google","tutorial","dude","real","customer","idea","paid","influencer","marketing","search","understand","send","watching","white","guys","story","text","reviews","upload","items","hard","super","informative","makes","found","printing","sale","sebastian","wondering","etsy","post","printify","brand","success","background","created","feel","quick","cool","cost","learn","sold","color","customers","helped","image","doesn","experience","life","sarah","change","email","excellent","black","honest","price","trial","copyright","phone","research","designing","dont","easy","process","week","commerce","gonna","india","listing","support","aliexpress","questions","watched","ecommerce","images","size","tshirt","word","contact","share","subscribed","wait","wanna","biaheza","giving","knowledge","live","demand","ideas","multiple","results","service","tatiana","confused","creating","income","person","promote","successful","tips","wrong","happy","haven","home","logo","talk","click","screen","straight","talking","times","advance","android","brother","heard","paypal","type","worth","appreciated","apps","bought","clothing","months","platform","transparent","answer","choose","fast","learning","finder","hoodie","inspiring","issue","level","pretty","searches","sign","storefront","thinking","2020","line","mind","spring","explain","item","loved","market","reply","printed","recently","shit","similar","simple","step","true","build","companies","cute","description","keyword","mentioned","purchase","waiting","amount","comment","couple","finally","follow","followers","graphic","huge","ready","sites","social","style","tool","advertise","david","deal","forward","glad","noticed","option","original","program","actual","anymore","buying","curious","grow","sense","specific","suggest","takes","update","youtubers","affiliate","blue","colors","computer","designer","earn","excited","hear","media","opinion","pages","photoshop","reason","rich","single","spend","supplier","version","wear","yoga","beautiful","cash","damn","edit","fantastic","inventory","music","offer","subscribe","taking","uploaded"],"freq":[975,512,384,338,327,314,295,292,283,281,254,249,246,241,220,203,202,200,200,199,199,196,194,185,185,177,176,165,150,150,138,138,136,136,135,130,130,129,127,126,123,120,116,114,112,111,110,105,105,104,100,96,94,93,93,91,91,91,89,87,85,83,82,82,82,81,79,74,73,73,73,72,72,71,71,70,70,69,69,69,68,68,68,68,67,67,67,66,66,66,65,65,64,63,63,62,61,60,60,60,60,60,59,59,59,58,57,56,56,56,56,55,55,55,55,54,54,54,54,53,53,53,53,52,52,52,51,51,51,50,49,49,49,48,48,48,48,46,45,45,45,45,45,44,44,44,43,43,43,43,43,42,42,42,42,42,41,41,41,41,40,40,40,40,40,40,39,39,39,39,39,39,39,39,38,38,38,38,38,37,37,37,37,37,36,36,36,36,36,36,36,35,35,35,35,35,35,35,34,34,34,34,33,33,33,33,33,33,33,33,33,33,32,32,32,32,31,31,31,31,31,30,30,30,30,30,30,30,29,29,29,29,29,29,29,29,28,28,28,28,28,28,28,28,28,28,28,28,28,27,27,27,27,27,27,27,27,27,26,26,26,26,26,26,26,26,26,26,26,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,24,24,24,24,24,24,24,24,24,24,24],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":0.0923076923076923,"backgroundColor":"white","gridSize":0,"minRotation":-0.785398163397448,"maxRotation":0.785398163397448,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+<p>Base on the graph above, a story could be formed that Teespring is considered a popular topic discussed in the video and the items were discussed about Teespring may include the products, design, shipping, quality, and free.</p>
+<h3 id="sentiment-analysis-what-do-people-think-about-the-topic">3. Sentiment Analysis (What do people think about the topic?)</h3>
+<p>Base on the graph in Figure 1, a story could be formed that Teespring is considered a popular topic discussed in the video and the items were discussed about Teespring may include the products, design, shipping, quality, and free.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+text$LikeCount[between(as.numeric(text$LikeCount),0, 6)] &lt;- &quot;Low Popularity&quot;
+text$LikeCount[between(as.numeric(text$LikeCount),6, 12)] &lt;- &quot;Medium Popularity&quot;
+text$LikeCount[as.numeric(text$LikeCount) &gt; 12] &lt;- &quot;High Popularity&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#You need to install &quot;textdata&quot; package to use the line below
+new_sent &lt;- get_sentiments(&quot;nrc&quot;)
+
+words_filtered1 &lt;- words_filtered %&gt;%
+  mutate(words = n_distinct(word)) %&gt;%
+  inner_join(new_sent)
+
+#You can write CSV of the sentiment results here
+#write_csv(words_filtered1, &quot;Sentiment Results.csv&quot;)
+
+count_n &lt;- words_filtered1 %&gt;%
+  count(sentiment, sort = TRUE)
+
+nrc_plot &lt;- words_filtered1 %&gt;%
+  #filter(videoId == &quot;JXqxDoteTuk&quot;) %&gt;%
+  group_by(sentiment) %&gt;%
+  summarise(word_count = n()) %&gt;%
+  ungroup() %&gt;%
+  mutate(sentiment = reorder(sentiment, word_count)) %&gt;%
+  #Use `fill = -word_count` to make the larger bars darker
+  ggplot(aes(sentiment, word_count, fill = -word_count)) +
+  geom_col() +
+  guides(fill = FALSE) + #Turn off the legend
+  labs(x = NULL, y = &quot;Word Count&quot;) +
+  scale_y_continuous(limits = c(0, 15000)) + #Hard code the axis limit
+  ggtitle(&quot;Sentiment Analysis&quot;) +
+  coord_flip()
+
+plot(nrc_plot)</code></pre>
+<p><img src="post_3_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<p>The graph shows most people express positive sentiment towards the topic and only about 25 percent express negative sentiment towards the topic.</p>
+<h3 id="association-rules-mining">4. Association Rules Mining</h3>
+<p>Association rules mining is the model created to investigate how the items associated with each other. Rules created by the algorithm consist of number of combinations of different items that are highly associated with each other.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+data_prep &lt;- words_filtered %&gt;%
+  select(word,LikeCount,Recent,Topic)
+
+data_prep &lt;- lapply(data_prep, as.factor)
+#Export the DataFrame into txt
+#write.table(data_prep, &quot;patterns.txt&quot;, sep = &quot;,&quot;)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#Read the exported txt file as Transactions
+trans_matrix &lt;- read_baskets(&quot;data/patterns.txt&quot;, sep = &quot;,&quot;)
+
+#Fit the model
+association.rules &lt;- apriori(trans_matrix, parameter = list(supp=0.001, conf=0.9, maxlen = 5))</code></pre>
+<pre><code>
+Apriori
+
+Parameter specification:
+ confidence minval smax arem  aval originalSupport maxtime support
+        0.9    0.1    1 none FALSE            TRUE       5   0.001
+ minlen maxlen target  ext
+      1      5  rules TRUE
+
+Algorithmic control:
+ filter tree heap memopt load sort verbose
+    0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+
+Absolute minimum support count: 41 
+
+set item appearances ...[0 item(s)] done [0.00s].
+set transactions ...[48420 item(s), 41020 transaction(s)] done [0.16s].
+sorting and recoding items ... [164 item(s)] done [0.01s].
+creating transaction tree ... done [0.02s].
+checking subsets of size 1 2 3 4 done [0.00s].
+writing ... [606 rule(s)] done [0.00s].
+creating S4 object  ... done [0.02s].</code></pre>
+<pre class="r"><code>
+summary(association.rules)</code></pre>
+<pre><code>
+set of 606 rules
+
+rule length distribution (lhs + rhs):sizes
+  1   2   3   4 
+  1 166 314 125 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   3.000   2.929   3.000   4.000 
+
+summary of quality measures:
+    support           confidence        coverage       
+ Min.   :0.001024   Min.   :0.9000   Min.   :0.001024  
+ 1st Qu.:0.001268   1st Qu.:0.9259   1st Qu.:0.001316  
+ Median :0.001609   Median :0.9454   Median :0.001706  
+ Mean   :0.008132   Mean   :0.9484   Mean   :0.008648  
+ 3rd Qu.:0.002529   3rd Qu.:0.9728   3rd Qu.:0.002706  
+ Max.   :0.934934   Max.   :1.0000   Max.   :1.000000  
+      lift            count        
+ Min.   :0.9626   Min.   :   42.0  
+ 1st Qu.:1.0054   1st Qu.:   52.0  
+ Median :1.0384   Median :   66.0  
+ Mean   :1.0476   Mean   :  333.6  
+ 3rd Qu.:1.0774   3rd Qu.:  103.8  
+ Max.   :1.1851   Max.   :38351.0  
+
+mining info:
+         data ntransactions support confidence
+ trans_matrix         41020   0.001        0.9</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#Plot Association Rules
+plot(association.rules, measure = c(&quot;support&quot;, &quot;lift&quot;), shading = &quot;confidence&quot;)</code></pre>
+<p><img src="post_3_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<pre class="r"><code>
+#Top 20 Rules
+library(RColorBrewer)
+twenty_rules &lt;- sample(sort(association.rules,by = &quot;lift&quot;), 20)
+plot(twenty_rules, method = &quot;graph&quot;)</code></pre>
+<p><img src="post_3_files/figure-html5/unnamed-chunk-11-2.png" width="624" /></p>
+<pre class="r"><code>
+twenty_rules &lt;- as(twenty_rules, &quot;data.frame&quot;) %&gt;%
+  separate(rules,
+           into = c(&quot;lhs&quot;,&quot;rhs&quot;),
+           sep = &quot;=&gt;&quot;)</code></pre>
+</div>
+<p>The circles represent rules generated by the algorithm. The red shaded colour represents lift value, while the size of the circle represents confidence value of the rule. All the arrows that are pointing into the circle represent combinations in the “lhs” (left hand side), while the arrow pointing from the circle represents the result “rhs” (right hand side) if the condition during the game met all the combinations on the “lhs”.</p>
+<p><strong>Clean the results generated from the algorithm and export them for detailed analysis</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#All Rules
+rules_ &lt;- sort(association.rules, by = &quot;lift&quot;)
+rules_ &lt;- as(rules_, &quot;data.frame&quot;)
+
+#Separate Rules column into &quot;lhs&quot; and &quot;rhs&quot;
+rules_ &lt;- rules_ %&gt;%
+  separate(rules,
+           into = c(&quot;lhs&quot;, &quot;rhs&quot;),
+           sep = &quot;=&gt;&quot;)
+#Remove unimportant character on the rhs column
+rules_$rhs &lt;- gsub(&quot;[^[:alnum:]]&quot;, &quot;&quot;, rules_$rhs)
+
+#Write CSV
+#write.csv(rules, &quot;data/rules.csv&quot;)</code></pre>
+</div>
+<h3 id="limitation">Limitation</h3>
+<p><strong>a)</strong> More data needed. Types of data may include:</p>
+<div class="line-block">   - More Video Topics about more competitors needed.</div>
+<div class="line-block">   - The more the data the better</div>
+<p><br> <strong>b)</strong> Retrieving each channel’s contact email is challenging since there is no automatic ways to retrieve the email yet.</p>
+<p><strong>c)</strong> The report could generate better insights if there are more times and budget to invest on data retrieval.</p>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

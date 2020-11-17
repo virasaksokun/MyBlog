@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Virasak's Blogs: The Emergency Department Problems</title>
+
+<meta property="description" itemprop="description" content="This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia."/>
+
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-11-01"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-11-01"/>
+<meta name="article:author" content="Virasak Sokun"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Virasak&#39;s Blogs: The Emergency Department Problems"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Virasak&#39;s Blogs"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Virasak&#39;s Blogs: The Emergency Department Problems"/>
+<meta property="twitter:description" content="This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia."/>
+
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["The Emergency Department Problems"]},{"type":"character","attributes":{},"value":["This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Virasak Sokun"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/virasak-sokun/"]}]}]},{"type":"character","attributes":{},"value":["11-01-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["data/bootstrap-3.3.5/css/bootstrap-theme.css","data/bootstrap-3.3.5/css/bootstrap-theme.css.map","data/bootstrap-3.3.5/css/bootstrap-theme.min.css","data/bootstrap-3.3.5/css/bootstrap.css","data/bootstrap-3.3.5/css/bootstrap.css.map","data/bootstrap-3.3.5/css/bootstrap.min.css","data/bootstrap-3.3.5/css/cerulean.min.css","data/bootstrap-3.3.5/css/cosmo.min.css","data/bootstrap-3.3.5/css/darkly.min.css","data/bootstrap-3.3.5/css/flatly.min.css","data/bootstrap-3.3.5/css/fonts/Lato.ttf","data/bootstrap-3.3.5/css/fonts/LatoBold.ttf","data/bootstrap-3.3.5/css/fonts/LatoItalic.ttf","data/bootstrap-3.3.5/css/fonts/NewsCycle.ttf","data/bootstrap-3.3.5/css/fonts/NewsCycleBold.ttf","data/bootstrap-3.3.5/css/fonts/OpenSans.ttf","data/bootstrap-3.3.5/css/fonts/OpenSansBold.ttf","data/bootstrap-3.3.5/css/fonts/OpenSansBoldItalic.ttf","data/bootstrap-3.3.5/css/fonts/OpenSansItalic.ttf","data/bootstrap-3.3.5/css/fonts/OpenSansLight.ttf","data/bootstrap-3.3.5/css/fonts/OpenSansLightItalic.ttf","data/bootstrap-3.3.5/css/fonts/Raleway.ttf","data/bootstrap-3.3.5/css/fonts/RalewayBold.ttf","data/bootstrap-3.3.5/css/fonts/Roboto.ttf","data/bootstrap-3.3.5/css/fonts/RobotoBold.ttf","data/bootstrap-3.3.5/css/fonts/RobotoLight.ttf","data/bootstrap-3.3.5/css/fonts/RobotoMedium.ttf","data/bootstrap-3.3.5/css/fonts/SourceSansPro.ttf","data/bootstrap-3.3.5/css/fonts/SourceSansProBold.ttf","data/bootstrap-3.3.5/css/fonts/SourceSansProItalic.ttf","data/bootstrap-3.3.5/css/fonts/SourceSansProLight.ttf","data/bootstrap-3.3.5/css/fonts/Ubuntu.ttf","data/bootstrap-3.3.5/css/journal.min.css","data/bootstrap-3.3.5/css/lumen.min.css","data/bootstrap-3.3.5/css/paper.min.css","data/bootstrap-3.3.5/css/readable.min.css","data/bootstrap-3.3.5/css/sandstone.min.css","data/bootstrap-3.3.5/css/simplex.min.css","data/bootstrap-3.3.5/css/spacelab.min.css","data/bootstrap-3.3.5/css/united.min.css","data/bootstrap-3.3.5/css/yeti.min.css","data/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot","data/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg","data/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf","data/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff","data/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2","data/bootstrap-3.3.5/js/bootstrap.js","data/bootstrap-3.3.5/js/bootstrap.min.js","data/bootstrap-3.3.5/js/npm.js","data/bootstrap-3.3.5/shim/html5shiv.min.js","data/bootstrap-3.3.5/shim/respond.min.js","data/bowser-1.9.3/bowser.min.js","data/distill-2.2.21/template.v2.js","data/govhack3.csv","data/jquery-1.11.3/jquery.min.js","data/webcomponents-2.0.0/webcomponents.js","first_blog_files/bowser-1.9.3/bowser.min.js","first_blog_files/distill-2.2.21/template.v2.js","first_blog_files/figure-html5/unnamed-chunk-12-1.png","first_blog_files/figure-html5/unnamed-chunk-13-1.png","first_blog_files/figure-html5/unnamed-chunk-18-1.png","first_blog_files/figure-html5/unnamed-chunk-21-1.png","first_blog_files/figure-html5/unnamed-chunk-22-1.png","first_blog_files/figure-html5/unnamed-chunk-24-1.png","first_blog_files/figure-html5/unnamed-chunk-24-2.png","first_blog_files/figure-html5/unnamed-chunk-25-1.png","first_blog_files/figure-html5/unnamed-chunk-25-2.png","first_blog_files/figure-html5/unnamed-chunk-26-1.png","first_blog_files/figure-html5/unnamed-chunk-27-1.png","first_blog_files/jquery-1.11.3/jquery.min.js","first_blog_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"The Emergency Department Problems","description":"This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia.","authors":[{"author":"Virasak Sokun","authorURL":"https://www.linkedin.com/in/virasak-sokun/","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-11-01T00:00:00.000+11:00","citationText":"Sokun, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="../../index.html">
+<img src="../../images/logo-white.png" alt="Logo"/>
+</a>
+<a href="../../index.html" class="title">Virasak's Blogs</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="https://virasaksokun.github.io/myresume/">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>The Emergency Department Problems</h1>
+<p>This is a basic example of the application of statistical data analytics tasks on the Emergency Department data in Australia.</p>
+</div>
+
+<div class="d-byline">
+  Virasak Sokun <a href="https://www.linkedin.com/in/virasak-sokun/" class="uri">https://www.linkedin.com/in/virasak-sokun/</a> 
+  
+<br/>11-01-2020
+</div>
+
+<div class="d-article">
+<p><br></p>
+<p><strong>Install packages</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+library(fitdistrplus)</code></pre>
+</div>
+<h3 id="print-list-of-healthcare-facilities">1: Print list of healthcare facilities</h3>
+<p><br></p>
+<p>The first task any data analytics project would do is to investigate the data. As in this case, we will have a look at the data “govhack3” and discover how many hospitals listed in the data.</p>
+<p><br></p>
+<p><strong>Read CSV</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ed_data_link &lt;- &#39;data/govhack3.csv&#39;
+top_row &lt;- read_csv(ed_data_link, col_names = FALSE, n_max = 1)
+second_row &lt;- read_csv(ed_data_link, n_max = 1)
+
+column_names &lt;- second_row %&gt;% 
+  unlist(., use.names=FALSE) %&gt;% 
+  make.unique(., sep = &quot;__&quot;) # double underscore
+
+column_names[2:8] &lt;- str_c(column_names[2:8], &#39;0&#39;, sep=&#39;__&#39;)
+
+daily_attendance &lt;- 
+  read_csv(ed_data_link, skip = 2, col_names = column_names)</code></pre>
+</div>
+<p><strong>Print list</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+for (i in seq(2,64,7)) {
+  print.data.frame(top_row[i])
+}</code></pre>
+<pre><code>
+                    X2
+1 Royal Perth Hospital
+                  X9
+1 Fremantle Hospital
+                                      X16
+1 Princess Margaret Hospital For Children
+                                      X23
+1 King Edward Memorial Hospital For Women
+                            X30
+1 Sir Charles Gairdner Hospital
+                                            X37
+1 Armadale/Kelmscott District Memorial Hospital
+                     X44
+1 Swan District Hospital
+                          X51
+1 Rockingham General Hospital
+                      X58
+1 Joondalup Health Campus</code></pre>
+</div>
+<h3 id="tidying-data">2: Tidying data</h3>
+<p>Cleaning data is the next step to make the data tidier. “spread” and “gather” are used in this process.</p>
+<p>The code below can be ellaborated in steps as shown:</p>
+<p><strong>Step 1</strong>: Gather all columns together except “Date” by the function gather().</p>
+<p><strong>Step 2</strong>: Separate the key function name “Attribute” into “Attributes” and “Hospitals” in order to separate the columns from hospitals by using “separate()” function.</p>
+<p><strong>Step 3</strong>: Use “mutate()” function to rename the attribute “Hospitals” by their own official names.</p>
+<p><strong>Step 4</strong>: Spread the key attribute and the values by using “spread()” function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ed_data1 &lt;- daily_attendance %&gt;%
+  gather(key = &quot;Attributes&quot;, value = &quot;Values&quot;, -Date) %&gt;%
+  separate(Attributes, c(&quot;Attributes&quot;, &quot;Hospitals&quot;), sep = &quot;__&quot;) %&gt;% 
+  mutate(Hospitals = replace(Hospitals, Hospitals == 0, &#39;Royal Perth Hospital&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 1, &#39;Princes Margaret Hospital For Children&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 2, &#39;Princess Margaret Hospital For Children&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 3, &#39;King Edward Memorial Hospital For Women&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 4, &#39;Sir Charles Gairdner Hospital&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 5, &#39;Armadale/Kelmscott District Memorial Hospital&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 6, &#39;Swan District Hospital&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 7, &#39;Rockingham General Hospital&#39;),
+         Hospitals = replace(Hospitals, Hospitals == 8, &#39;Joondalup Health Campus&#39;)) %&gt;%
+  spread(Attributes, Values)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ed_data2 &lt;- ed_data1 %&gt;%
+  mutate(Date = as.Date(Date, format = &#39;%d-%B-%Y&#39;))</code></pre>
+</div>
+<p><strong>Inspect data class</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+sapply(ed_data1, class)</code></pre>
+<pre><code>
+       Date   Hospitals  Admissions  Attendance       Tri_1 
+&quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; 
+      Tri_2       Tri_3       Tri_4       Tri_5 
+&quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; </code></pre>
+</div>
+<p><strong>Change variables types</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ed_data2 &lt;- ed_data2 %&gt;%
+  mutate(Attendance = as.integer(Attendance),
+         Admissions = as.integer(Admissions),
+         Tri_1 = as.integer(Tri_1),
+         Tri_2 = as.integer(Tri_2),
+         Tri_3 = as.integer(Tri_3),
+         Tri_4 = as.integer(Tri_4),
+         Tri_5 = as.integer(Tri_5))</code></pre>
+</div>
+<p><strong>Replace missing values (N/A) with 0</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ed_data3 &lt;- ed_data2 %&gt;%
+  mutate(Tri_1 = replace_na(Tri_1,0),
+         Tri_2 = replace_na(Tri_2,0),
+         Tri_3 = replace_na(Tri_3,0),
+         Tri_4 = replace_na(Tri_4,0),
+         Tri_5 = replace_na(Tri_5,0),)</code></pre>
+</div>
+<h3 id="exploratory-data-analysis">3: Exploratory Data Analysis</h3>
+<p>Royal Perth Hospital were chosen to be the targeted hospital for further analysis. The official name of the hospital is “Royal Perth Hospital” with 365 observations and 8 important variables including Date, Attendances, Admissions, Triage 1, Triage 2, Triage 3, Triage 4, and Triage 5.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+royal_perth &lt;- ed_data3 %&gt;%
+  filter(Hospitals == &#39;Royal Perth Hospital&#39;)</code></pre>
+</div>
+<p><strong>Show hospital name, total number of attendances and total number of admissions</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cat(&quot;The hospital name is: &quot;, unique(royal_perth$Hospitals), &quot;\n&quot;)</code></pre>
+<pre><code>
+The hospital name is:  Royal Perth Hospital </code></pre>
+<pre class="r"><code>
+cat(&quot;The total number of Attendance is:&quot;,sum(royal_perth$Attendance),&quot;\n&quot;)</code></pre>
+<pre><code>
+The total number of Attendance is: 82862 </code></pre>
+<pre class="r"><code>
+cat(&quot;The total number of Admissions is:&quot;,sum(royal_perth$Admissions))</code></pre>
+<pre><code>
+The total number of Admissions is: 35126</code></pre>
+</div>
+<p><strong>Show summary of Attendance and Admissions variables</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p><strong>3.1 Compare ED demands across the year </strong></p>
+<p>Data exploration is the first step to determine which distributions fit with the data best (Ricci, 2005).Series line graph is ideal in comparing the volume of ED demands across the year. ED demands were identified as both emergency attendance and emergency admissions and the results are shown below.</p>
+<p><strong>Plot ED demand attendance using line graph</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(&quot;ggplot2&quot;)
+royal_perth %&gt;%
+  ggplot(aes(x = Date, y = Attendance, group = 1)) +
+  geom_line() + geom_point() + ggtitle(&quot;Figure 1. Line graph of Attendence by Date&quot;)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<pre class="r"><code>
+summary(royal_perth$Attendance)</code></pre>
+<pre><code>
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    179     215     227     227     239     275 </code></pre>
+</div>
+<p><strong>Figure 1</strong> shows the Royal Perth Hospital attendance and admissions between Jul 2013 and Jul 2014. The graph seems to be fluctuated in a seasonal pattern. To explore more in detail, the detailed summary of the attendance variable were shown. The average emergency attendance in Royal Perth hospital is 227 per day and the maximum number of attendance was 275 for the last two years.</p>
+<p><strong>Plot ED demand admissions using line graph</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+royal_perth %&gt;%
+  ggplot(aes(x = Date, y = Admissions, group = 1)) +
+  geom_line() + geom_point() + ggtitle(&quot;Figure 2. Line graph of Admission by Date&quot;)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<pre class="r"><code>
+summary(royal_perth$Admissions)</code></pre>
+<pre><code>
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  37.00   88.00   96.00   96.24  105.00  131.00 </code></pre>
+</div>
+<p>The line graph in <strong>Figure 2</strong> shows admission fluctuated in a seasonal form but at some points in March 2014, the data dropped drastically to 37 (minimum). A detailed summary were shown in Figure 4. The average patients being admitted and directly admitted is 96 while the maximum number of admissions is 131 patients in the period of Jul 2013 and Jul 2014.</p>
+<p><strong>Arrange the data by Date (Ascending)</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+royal_perth &lt;- royal_perth %&gt;%
+  arrange(Date)</code></pre>
+</div>
+<p><strong>3.2 How ED demands change during a week?</strong></p>
+<p><strong>Transform Date into day of the week and calculate average value of attendance</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(lubridate)
+weekly_attendance &lt;- royal_perth %&gt;%
+  mutate(day = Date) %&gt;%
+  mutate(day = wday(Date, label = TRUE)) %&gt;%
+  group_by(day) %&gt;%
+  summarise(attendance_average = mean(Attendance))</code></pre>
+</div>
+<p><strong>Transform Date into day of the week and calculate average value of admissions</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+weekly_admissions &lt;- royal_perth %&gt;%
+  mutate(day = Date) %&gt;%
+  mutate(day = wday(Date, label = TRUE)) %&gt;%
+  group_by(day) %&gt;%
+  summarise(admissions_average = mean(Admissions))</code></pre>
+</div>
+<p><strong>Join both weekly attendance and weekly admissions data together by “day”</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+weekly_join &lt;- inner_join(weekly_attendance, weekly_admissions)</code></pre>
+</div>
+<p><strong>Plot line graph of average attendance and admissions during one week in the year</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+weekly_join %&gt;%
+  ggplot(aes(x = day)) +
+  geom_line(aes(y = attendance_average, group = 1, colour = &quot;Attendance&quot;))+
+  geom_line(aes(y = admissions_average, group = 1, colour = &quot;Admissions&quot;)) +
+  geom_point(aes(y = attendance_average, group = 1, colour = &quot;Attendance&quot;)) +
+  geom_point(aes(y = admissions_average, group = 1, colour = &quot;Admissions&quot;)) + 
+  scale_colour_manual(values = c(&quot;blue&quot;,&quot;red&quot;), name = &quot;ED Type&quot;, labels = c(&quot;Attendance&quot;, &quot;Admissions&quot;))</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+</div>
+<p>Based on the graph,it seems the busiest day of the week is Monday as explained by the peak point of both average attendance and average admissions number on Monday.</p>
+<p>The distributions that are appropriate for ED demands which are discrete variables include normal distributions, Poisson distribution, and negative binomial distribution.</p>
+<p><strong>3.3 Appropriate distributions for modelling ED demand</strong></p>
+<p><strong>Set seed = 741 and generate sample of 200 observations</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+set.seed(741)
+sampled_data = sample_n(royal_perth, 200)</code></pre>
+</div>
+<p><strong>Get summary of sampled_data</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+summary(sampled_data)</code></pre>
+<pre><code>
+      Date             Hospitals           Admissions    
+ Min.   :2013-07-01   Length:200         Min.   : 68.00  
+ 1st Qu.:2013-09-18   Class :character   1st Qu.: 87.75  
+ Median :2013-12-22   Mode  :character   Median : 95.00  
+ Mean   :2013-12-26                      Mean   : 95.46  
+ 3rd Qu.:2014-03-25                      3rd Qu.:103.00  
+ Max.   :2014-06-30                      Max.   :124.00  
+   Attendance        Tri_1            Tri_2           Tri_3       
+ Min.   :183.0   Min.   : 0.000   Min.   :12.00   Min.   : 53.00  
+ 1st Qu.:213.8   1st Qu.: 3.000   1st Qu.:31.00   1st Qu.: 72.00  
+ Median :227.0   Median : 4.000   Median :35.00   Median : 79.00  
+ Mean   :226.3   Mean   : 4.015   Mean   :35.77   Mean   : 80.64  
+ 3rd Qu.:238.0   3rd Qu.: 5.250   3rd Qu.:40.00   3rd Qu.: 89.00  
+ Max.   :267.0   Max.   :15.000   Max.   :55.00   Max.   :113.00  
+     Tri_4            Tri_5     
+ Min.   : 53.00   Min.   : 0.0  
+ 1st Qu.: 80.00   1st Qu.:12.0  
+ Median : 88.00   Median :16.0  
+ Mean   : 88.99   Mean   :16.3  
+ 3rd Qu.: 99.00   3rd Qu.:20.0  
+ Max.   :129.00   Max.   :37.0  </code></pre>
+</div>
+<p><strong>Plot histogram of Attendance</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+hist(sampled_data$Attendance, main = &quot;Histogram of Attendance&quot;, xlab = &quot;Attendance&quot;)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
+<p><strong>Plot histogram of admissions</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+hist(sampled_data$Admissions, main = &quot;Histogram of Admissions&quot;, xlab = &quot;Admissions&quot;)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+</div>
+<p><strong>Call “fitdistrplus” library</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(fitdistrplus)</code></pre>
+</div>
+<p><strong>Describe distribution of Attendance variable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+var(sampled_data$Attendance)</code></pre>
+<pre><code>
+[1] 294.5487</code></pre>
+<pre class="r"><code>
+hist(sampled_data$Attendance)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+<pre class="r"><code>
+descdist(sampled_data$Attendance, boot = 100, discrete = TRUE)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-24-2.png" width="624" /></p>
+<pre><code>
+summary statistics
+------
+min:  183   max:  267 
+median:  227 
+mean:  226.345 
+estimated sd:  17.16242 
+estimated skewness:  0.05893257 
+estimated kurtosis:  2.632614 </code></pre>
+</div>
+<p><strong>Describe distribution of Admissions variable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+var(sampled_data$Admissions)</code></pre>
+<pre><code>
+[1] 126.7019</code></pre>
+<pre class="r"><code>
+hist(sampled_data$Admissions)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+<pre class="r"><code>
+descdist(sampled_data$Admissions, boot = 100, discrete = TRUE)</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-25-2.png" width="624" /></p>
+<pre><code>
+summary statistics
+------
+min:  68   max:  124 
+median:  95 
+mean:  95.46 
+estimated sd:  11.25619 
+estimated skewness:  0.02797309 
+estimated kurtosis:  2.729161 </code></pre>
+</div>
+<p>Based on (PennState Elderly College of Sciece, 2018), the Poisson distributions has the following assumptions:</p>
+<ol type="1">
+<li><p>The events occurrence must be independent.</p></li>
+<li><p>The average number of occurrences cannot be simultaneous.</p></li>
+<li><p>The time interval for probability distribution of the number of occurrences must be fixed or depends only on the length of the interval.</p></li>
+</ol>
+<p>The variables that meet these assumptions for the Poisson distribution are emergency attendances and admissions. In other word, it is assumed that the attendances and admissions were recorded daily without being affected by any day of the time period. Also, the average number of attendance and admissions recorded are fixed and the time period is between 1st July 2013 and 30th June 2014 only.</p>
+<p>In addition, the Cullen and Frey graph is clearly showing that the observation is approaching normal distribution as well as Poisson distribution for both variables.</p>
+<h3 id="fitting-distributions-and-compare-distributions">4:Fitting Distributions and Compare Distributions</h3>
+<p>Fit a Poisson distribution and a negative binomial distribution on Tri_2. By using “<strong>fitdist</strong>” function, distr = “<strong>pois</strong>”, the results from fitting the Poisson distributions were shown. Additionally, the method to evaluate the fit model is maximum likelihood estimation “<strong>mle</strong>”.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+#Examining distributions 
+library(fitdistrplus)
+
+estimator1 &lt;- fitdist(sampled_data$Tri_2, &quot;pois&quot;, method = &quot;mle&quot;)
+
+estimator1 %&gt;%
+  plot()</code></pre>
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<pre class="r"><code>
+estimator1 %&gt;%
+  summary()</code></pre>
+<pre><code>
+Fitting of the distribution &#39; pois &#39; by maximum likelihood 
+Parameters : 
+       estimate Std. Error
+lambda    35.77  0.4229066
+Loglikelihood:  -687.0323   AIC:  1376.065   BIC:  1379.363 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="first_blog_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+<pre><code>
+Fitting of the distribution &#39; nbinom &#39; by maximum likelihood 
+Parameters : 
+     estimate Std. Error
+size 77.27476 24.5800562
+mu   35.77101  0.5115251
+Loglikelihood:  -678.8766   AIC:  1361.753   BIC:  1368.35 
+Correlation matrix:
+              size            mu
+size  1.0000000000 -0.0001983321
+mu   -0.0001983321  1.0000000000</code></pre>
+</div>
+<p>Usually, the preferred model is the one that has the minimized negative loglikelihood and base on Table 6, the negative binomial distribution is the best fitted one for Tri_2 variable. Furthermore, according to McNeese (2016), the smallest AIC (Akaike information criterion) value is the preferred model as well as the BIC (Bayesian Information Criterion). In this case, the AIC and BIC of negative binomial distribution are both smaller than those in Poisson Distribution.</p>
+<p>Therefore, the best fitted distribution for the Tri_2 (Emergency) is negative binomial distribution.</p>
+<h3 id="research-question">5: Research Question</h3>
+<p>There are many types of distribution fitting method available for discrete data like this analysis. Those include quantile matching estimation (QME), maximum goodness of fit estimation (MGE), and moment matching estimation (MME) (Marie et al, 2019). For the QME method, one of the benefit of using it is that it does not require the data being paired together and can also be used to identify asynchronous measurements which results from various applications (He et al. cited in Nikolaos et al, 2015). MQE is used to match the unconditional distribution functions which is different from conditional quantile regressions (Nikolaos et al, 2015). Besides, the goodness of fit estimation (MGE) is also another type of distribution that could be applied to any distribution either discrete or continuous. However, the test of goodness of fit is sensitive to how the data that is binned and require sufficient sample size to achieve minimum expected frequency (National Institute of Standards and Technology, 2018).</p>
+<p>In addition, moment matching estimation (MME) has also been applied to various application areas and also include the distribution estimation as well. The benefit of MME is the parameter estimation can be formulated as non-convex problems, plus the properties theoretically prove as consistent and asymptotic normality. However, MME often result in low performance for insufficient sample size (Kim, M. Appl Intell, 2018).</p>
+<h3 id="ethical-concerns">6: Ethical concerns</h3>
+<p>There are some ethical concerns regarding the information of the individual patients in the hospital since the data is open for public. That was solved by converting the number of patient as N/A when the number of the category during the day is less than three to protect the information of the patients.</p>
+<h3 id="references">References</h3>
+<p>Australian Government, 2014. Data.gov.au. [Online] Available at: <a href="https://data.gov.au/dataset/ds-dga-6bfec5ea-207e-4d67-8965-c7e72290844b/details" class="uri">https://data.gov.au/dataset/ds-dga-6bfec5ea-207e-4d67-8965-c7e72290844b/details</a> [Accessed 22 August 2019].</p>
+<p>Brown, A. H. a. S., 2002. Quantile maximum likelihood estimation of response time distributions. Psychonomic Bulletin &amp; Review, Volume 2, pp. 394-401.</p>
+<p>Kim, M. A. I., 2018. A maximum-likelihood and moment-matching density estimator for crowd-sourcing label problem. SpringerLink, 48(2), pp. 381-389.</p>
+<p>Marie_laure Delignette-Muller, C. D. R. P. J.-B. D. A. S., 2019. Help to FIt of a Parametric Distribution to Non-Censored or Censored Data. In: Package &quot;fitdistrplus’. s.l.:s.n., pp. 1-87.</p>
+<p>McNeese, B., 2016. BPI Consulting, LLC. [Online] Available at: <a href="https://www.spcforexcel.com/knowledge/basic-statistics/deciding-which-distribution-fits-your-data-best" class="uri">https://www.spcforexcel.com/knowledge/basic-statistics/deciding-which-distribution-fits-your-data-best</a> [Accessed 22 August 2019].</p>
+<p>National Institute of Standards and Technology, 2013. Engineering Statistics Handbook. [Online] Available at: <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda3652.htm" class="uri">https://www.itl.nist.gov/div898/handbook/eda/section3/eda3652.htm</a> [Accessed 22 August 2019].</p>
+<p>National Institute of Standards and Technology, 2018. Statistical Engineering Division Dataplot. [Online] Available at: <a href="https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/goodfit.htm" class="uri">https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/goodfit.htm</a> [Accessed 22 August 2019].</p>
+<p>Nikolaos Sgouropoulos, Q. Y. &amp;. C. Y. (., 2014. Matching a Distribution by Matching Quantiles Estimation. Journal of the American Statistical Association, pp. 742-759.</p>
+<p>PennState Elderly College of Sciece, 2018. STAT 504 - Analysis of Discrete Data. [Online] Available at: <a href="https://newonlinecourses.science.psu.edu/stat504/node/57/" class="uri">https://newonlinecourses.science.psu.edu/stat504/node/57/</a> [Accessed 22 August 2018].</p>
+<p>Ricci, V., 2005. Fitting Distributions with R. Fitting Distributions with R.</p>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
