@@ -12,7 +12,7 @@
     "date": "2020-11-15",
     "categories": [],
     "preview": "posts/3.third_blog/post_3_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2020-11-16T00:32:05+11:00",
+    "last_modified": "2020-11-18T09:59:17+07:00",
     "input_file": {}
   },
   {
@@ -28,7 +28,7 @@
     "date": "2020-11-07",
     "categories": [],
     "preview": "posts/2.second_blog/image/table.png",
-    "last_modified": "2020-11-12T17:05:06+11:00",
+    "last_modified": "2020-11-12T13:05:06+07:00",
     "input_file": {}
   },
   {
@@ -44,23 +44,7 @@
     "date": "2020-11-01",
     "categories": [],
     "preview": "posts/1.first_blog/first_blog_files/figure-html5/unnamed-chunk-12-1.png",
-    "last_modified": "2020-11-08T01:00:17+11:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/welcome/",
-    "title": "Welcome to My Blog",
-    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
-    "author": [
-      {
-        "name": "Virasak Sokun",
-        "url": "https://example.com/norajones"
-      }
-    ],
-    "date": "2020-10-16",
-    "categories": [],
-    "preview": {},
-    "last_modified": "2020-11-01T11:06:46+11:00",
+    "last_modified": "2020-11-07T21:00:17+07:00",
     "input_file": {}
   }
 ]
